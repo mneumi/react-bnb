@@ -1,5 +1,6 @@
 import { ThunkAction } from "redux-thunk";
 import { RootState } from "../store";
+import axios from "axios";
 
 export const FETCH_RECOMMEND_PRODUCTS_START = "fetch_recommend_products_start";
 export const FETCH_RECOMMEND_PRODUCTS_SUCCESS =
@@ -58,7 +59,7 @@ export const giveMeDataActionCreator = (): ThunkAction<
 	dispatch(fetchRecommendProductsStartActionCreator());
 	try {
 		const { data } = await axios.get(
-			"http://localhost:9999/api/productCollections"
+			"http://localhost:9999/productCollections"
 		);
 		dispatch(fetchRecommendProductsSuccessActionCreator(data));
 	} catch (error) {

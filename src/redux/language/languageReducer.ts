@@ -24,10 +24,10 @@ export interface LanguageState {
 	languageList: { name: string; code: string }[];
 }
 
-export default (
+export default function languageReduer(
 	state: LanguageState = defaultState,
 	action: LanguageActionTypes
-) => {
+) {
 	switch (action.type) {
 		case CHANGE_LANGUAGE:
 			i18n.changeLanguage(action.payload);
